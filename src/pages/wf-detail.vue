@@ -76,7 +76,7 @@ export default {
         return {
             main: {},
             details: [],
-            custDetails:[]
+            custDetails: []
         }
     },
     components: {
@@ -87,18 +87,18 @@ export default {
         loadData() {
             return serviceBus.getWorkflowDetail(this.$route.params.WorkflowName, this.$route.params.ID).
                 then((res) => {
-                    alert(JSON.stringify(res))
-                    this.main=res.Main
-                    this.details=res.Details
-                    this.custDetails=res.CustDetails
+                    // this.$f7.alert(JSON.stringify(res))
+                    this.main = res.Main
+                    this.details = res.Details
+                    this.custDetails = res.CustDetails
                 }).catch((ex) => {
-                    alert('加载数据失败！'+ex.message);
+                    this.$f7.alert('加载数据失败！' + ex.message);
                 })
         }
     },
     mounted() {
-        this.$nextTick(()=>{
-           return this.loadData()
+        this.$nextTick(() => {
+            return this.loadData()
         })
     }
 }
