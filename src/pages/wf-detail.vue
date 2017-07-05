@@ -36,7 +36,7 @@
     <f7-page>
         <f7-navbar title="详情" back-link="返回" sliding></f7-navbar>
         <f7-block inner class="detail-content">
-            <detail-header :node="main.CurrentNodeDisplayName"></detail-header>
+            <detail-header :node="main.CurrentNodeDisplayName" :recordId="main.ID"></detail-header>
             <detail-block-list :details="details"></detail-block-list>
             <!--自定义的详情-->
             <div v-for="detail in custDetails" :key="detail.Key">

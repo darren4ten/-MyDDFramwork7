@@ -12,6 +12,10 @@
   color: #6d6d72;
   font-size: 14px;
 }
+
+.page-main {
+  margin-top: 0;
+}
 </style>
 
 <template>

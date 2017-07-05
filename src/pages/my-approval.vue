@@ -22,6 +22,17 @@
     float: right;
 }
 
+.list-approval {
+    margin-top: -2px;
+}
+
+
+/*清除左侧15px的边距*/
+
+.list-approval .item-link>.item-content {
+    padding-left: 0;
+}
+
 .list-bar-item {}
 
 .list-bar-item {
@@ -61,31 +72,30 @@
                 </f7-col>
             </f7-nav-right>
         </f7-navbar>
-        <f7-block inner>
+        <f7-block class="page-main" inner>
             <f7-searchbar cancel-link="Cancel" placeholder="标题、流程编号" :clear="true">
             </f7-searchbar>
             <!-- Page Content -->
-            <div class="list-block media-list">
+            <div class="list-block media-list list-approval">
                 <ul>
-                    <li v-for="item in items" :key="item.ID">
-                        <f7-list-item :link="'/wf-detail/'+item.ID+'/'+item.WorkflowName">
-                            <div class="item-content list-bar-item">
-                                <div class="item-media card-detail-leftbar">
-                                    <span class="ft-movielist-item-img"></span>
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title">
-                                            <span class="card-detail-header">{{item.SubmitUserFullName}}-{{item.SubmitTime}}</span>
-                                            <span class="card-detail-node">{{item.CurrentNodeDisplayName}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="item-subtitle">{{item.WorkflowName}}</div>
-                                    <div class="item-text">{{item.SN}}</div>
-                                </div>
+                    <f7-list-item v-for="item in items" :key="item.ID" :link="'/wf-detail/'+item.ID+'/'+item.WorkflowName">
+                        <div class="item-content list-bar-item">
+                            <div class="item-media card-detail-leftbar">
+                                <span class="ft-movielist-item-img"></span>
                             </div>
-                        </f7-list-item>
-                    </li>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">
+                                        <span class="card-detail-header">{{item.SubmitUserFullName}}-{{item.SubmitTime}}</span>
+                                        <span class="card-detail-node">{{item.CurrentNodeDisplayName}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-subtitle">{{item.WorkflowName}}</div>
+                                <div class="item-text">{{item.SN}}</div>
+                            </div>
+                        </div>
+                    </f7-list-item>
+    
                 </ul>
             </div>
         </f7-block>
